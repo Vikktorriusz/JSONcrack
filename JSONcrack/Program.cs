@@ -13,6 +13,13 @@ namespace JSONcrack
         public string nev { get; set; }
         public List<int> jegyek { get; set; }
     }
+    class munkavallalo
+    {
+        public string nev { get; set; }
+        public int fizetes { get; set; }
+        public bool jogositvany { get; set; }
+        public string munkarend { get; set; }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -44,6 +51,10 @@ namespace JSONcrack
             {
                 Console.WriteLine("Nincs ilyen nevű diák");
             }
+            String fajl3 = File.ReadAllText("C:\\Users\\bakilv\\source\\repos\\JSONcrack\\JSONcrack\\adatok.json", System.Text.Encoding.Latin1);
+            munkavallalo munkavallalok = JsonSerializer.Deserialize<munkavallalo>(fajl3);
+
+            munkavallalo szemely = new munkavallalo("Szabó Júlia", 380000, false,"10:00-18:00");
         }
     }
 }
